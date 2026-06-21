@@ -12,4 +12,3 @@ app.post('/login', handleLogin);
 app.listen({ port: PORT }, () => {
   console.log(`Server running on port ${PORT}`);
 });
-sadd
