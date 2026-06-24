@@ -5,6 +5,7 @@ import { ApolloServer } from '@apollo/server';
 import { expressMiddleware as apolloMiddleware } from '@as-integrations/express4';
 import {readFile} from 'node:fs/promises'
 import { mockResolvers } from './resolvers.js';
+import { typeDefs } from './schema.js';
 
 const PORT = 9000;
 
@@ -13,10 +14,10 @@ app.use(cors(), express.json(), authMiddleware);
 
 app.post('/login', handleLogin);
 
-const schema = await readFile('./schema.graphql','utf8');
+// const schema = await readFile('./schema.graphql','utf8');
 
 //configure apolloserver for graphql API
-const apolloServer = new ApolloServer({ typeDefs: schema, resolvers: mockResolvers});
+const apolloServer = new ApolloServer({ typeDefs: typeDefs, resolvers: mockResolvers});
 await apolloServer.start();
 app.use('/graphql', apolloMiddleware(apolloServer));
 

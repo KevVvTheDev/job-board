@@ -1,11 +1,13 @@
-type jobPost{
-  title: String,
-  name: String,
-  description: String,
-  id: ID
-}
+# type jobPost{
+#   title: String,
+#   name: String,
+#   description: String,
+#   id: ID
+# }
 
-type Query{
-  greeting: String,
-  job: jobPost,
-}
+# type Query{
+#   greeting: String,
+#   job: jobPost,
+# }
+
+#! DELETE THIS FILE IN THE FUTURE 
