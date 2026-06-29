@@ -18,5 +18,6 @@ type Company{
 type Query {
   jobs: [JobPost!],
   job (id: ID!): JobPost
+  company (id:ID!): Company
 }
 `;

@@ -24,19 +24,33 @@ export const getJobs = async () =>{
 
 export const getJob = async (id) =>{
   const query = `#graphql
-  query{
-     job(id: ${id}) {
-    id
-    date
-    title
-    description
-    company{
-      name
+  query ($id:ID!){
+    job(id: $id) {
       id
-    }
+      date
+      title
+      description
+      company{
+        name
+        id
+      }
    }
   }
   `;
-  const data = await client.request(query);
+  const data = await client.request(query, {id});
   return data.job;
+}
+
+export const getCompany = async (id) =>{
+  const query = `#graphql
+  query ($id:ID!){
+    company(id: $id) {
+    id
+    name
+    description
+   }
+  }
+  `;
+  const data = await client.request(query, {id});
+  return data.company;
 }

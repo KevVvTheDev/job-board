@@ -5,7 +5,8 @@ import { getCompany } from './db/companies.js';
 export const mockResolvers = {
   Query: {
     jobs: async () => { return await getJobs(); },
-    job:  async (root, {id}) =>  getJob(id)
+    job:  async (root, {id}) =>  getJob(id),
+    company: async (root, {id}) => getCompany(id),
   },
 
   // graphQL will read the resolvers function first to do conversion
