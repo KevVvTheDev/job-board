@@ -1,5 +1,11 @@
 //this is the file where the schema is being defined and running 
 export const typeDefs = `#graphql
+type Query {
+  jobs: [JobPost!],
+  job (id: ID!): JobPost
+  company (id:ID!): Company
+}
+
 type JobPost {
   title: String!,
   description: String,
@@ -15,9 +21,4 @@ type Company{
   description: String
 }
 
-type Query {
-  jobs: [JobPost!],
-  job (id: ID!): JobPost
-  company (id:ID!): Company
-}
 `;

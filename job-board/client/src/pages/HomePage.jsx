@@ -5,10 +5,11 @@ import { getJobs } from '../lib/graphQL/GraphQuery';
 function HomePage() {
   const [jobs, setJobs] = useState([]);
 
+  //run once when first initialized to get all the jobs from db
   useEffect(()=>{
     getJobs().then((jobs) => setJobs(jobs));
   }, []);
-  
+
   return (
     <div>
       <h1 className="title">
