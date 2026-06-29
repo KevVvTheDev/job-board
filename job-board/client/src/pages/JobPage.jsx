@@ -1,12 +1,12 @@
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { formatDate } from '../lib/formatters';
-import { jobs } from '../lib/fake-data';
+import { getJob } from '../lib/graphQL/GraphQuery';
 
 function JobPage() {
   const { jobId } = useParams();
 
-  const job = jobs.find((job) => job.id === jobId);
+  const job = getJob(jobId);
   return (
     <div>
       <h1 className="title is-2">

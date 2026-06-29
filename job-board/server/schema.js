@@ -11,11 +11,12 @@ type JobPost {
 
 type Company{
   id: ID!,
-  companyName: String,
-  jobDescription: String
+  name: String,
+  description: String
 }
 
 type Query {
   jobs: [JobPost!],
+  job (id: ID!): JobPost
 }
 `;
